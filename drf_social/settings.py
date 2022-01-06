@@ -38,18 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #django rest framework
-     'rest_framework',
-     'rest_framework.authtoken',
-     'rest_auth',
-    #for social login
-     'django.contrib.sites',
-     'allauth',
-     'allauth.account',
-     'rest_auth.registration',
-     'allauth.socialaccount',
-     'allauth.socialaccount.providers.facebook',
-     'allauth.socialaccount.providers.google',
+    # django rest framework
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    # for social login
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
+    'allauth.socialaccount.providers.google',
+    
 ]
 
 MIDDLEWARE = [
@@ -63,13 +63,13 @@ MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True 
+CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_WHITELIST = ["http://localhost:3000",]
+CORS_ORIGIN_WHITELIST = ["http://localhost:3000", ]
 
 ROOT_URLCONF = 'drf_social.urls'
 
-SITE_ID = 1
+SITE_ID = 2
 
 TEMPLATES = [
     {
