@@ -2,21 +2,31 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
+import axios from "axios";
 
 
 function App() {
   const responseGoogle = (response) => {
-    
     const {name, email} = response.profileObj
+
+    
     console.log(response.accessToken);
-    console.log(response.tokenId);
+    axios.post('/dj-rest-auth/google/', {
+      access_token:response.accessToken
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+    
   }
   return (
     <div className="App">
        <h1>LOGIN WITH GOOGLE</h1>
-      
       <GoogleLogin
-        clientId="15183622662-44dpv7eesg30cl27h6pu1nu7b5uj4q68.apps.googleusercontent.com"
+        clientId={process.env.REACT_APP_GOOGLE_CLIENT_ID}
         buttonText="LOGIN WITH GOOGLE"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
