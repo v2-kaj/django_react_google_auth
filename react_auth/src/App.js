@@ -3,6 +3,8 @@ import './App.css';
 import React, { Component } from 'react';
 import GoogleLogin from 'react-google-login';
 import axios from "axios";
+import { Link, Navigate } from "react-router-dom";
+
 
 
 function App() {
@@ -16,6 +18,7 @@ function App() {
     })
     .then(function (response) {
       console.log(response);
+      <Navigate to="/profile" />
     })
     .catch(function (error) {
       console.log(error);
@@ -31,6 +34,8 @@ function App() {
         onSuccess={responseGoogle}
         onFailure={responseGoogle}
       />
+      <Link to="/">Home</Link> |{" "}
+      <Link to="/profile">Profile</Link>
       
     </div>
   );
