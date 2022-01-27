@@ -71,6 +71,8 @@ ROOT_URLCONF = 'drf_social.urls'
 
 SITE_ID = 2
 
+REST_USE_JWT = True
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
